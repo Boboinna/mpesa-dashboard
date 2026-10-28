@@ -6,7 +6,7 @@ export type Kind =
   | "fee" // Safaricom charges
   | "loan_in" // Fuliza advance, Hustler Fund loan disbursement
   | "loan_out" // Fuliza repayment, Hustler Fund loan repayment
-  | "transfer"; // M-Shwari and Hustler savings moves (your own money)
+  | "transfer"; // M-Shwari and Hustler savings moves
 
 export type Category =
   | "Received"
@@ -112,7 +112,7 @@ export type ImportLog = {
 
 export type ParseResult = {
   mobile: string | null; // normalized 254XXXXXXXXX
-  accountLabel: string; // e.g. "0112***926"
+  accountLabel: string;
   periodFrom: string; // YYYY-MM-DD
   periodTo: string;
   transactions: ParsedTransaction[]; // statement order, newest first

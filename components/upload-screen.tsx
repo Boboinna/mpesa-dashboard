@@ -131,7 +131,7 @@ const SAMPLE_OUT = [28, 33, 31, 35, 33, 38, 36, 40];
 
 function Preview() {
   return (
-    <div className="relative mx-auto hidden h-[520px] w-full max-w-[540px] xl:block" aria-hidden="true">
+    <div className="relative mx-auto hidden h-[520px] w-full max-w-[540px] @min-[440px]:block" aria-hidden="true">
       <div className="absolute left-3 top-2 w-[calc(100%-1.5rem)] max-w-[500px] rounded-[20px] border border-line bg-white p-5 shadow-[0_24px_60px_rgba(14,124,74,0.18)]">
         <div className="mb-3 flex items-center justify-between">
           <strong>Overview</strong>
@@ -165,7 +165,7 @@ function Preview() {
       {/* <div className="absolute bottom-6 left-0 flex w-[280px] items-start gap-3 rounded-2xl border border-line bg-white p-3.5 shadow-lg">
         <Chip className="!p-2"><Icon name="check" size={18} /></Chip>
         <div><strong className="text-sm">Balance check passed</strong><div className="text-[13px] text-mute">Every row verified</div></div>
-      </div> */}
+      </div>*/}
       {/* <div className="absolute bottom-0 right-0 flex w-[270px] items-start gap-3 rounded-2xl bg-ink p-3.5 text-white shadow-xl">
         <span className="text-[#7be0a6]"><Icon name="check" size={20} /></span>
         <div><strong className="text-sm">Duplicates skipped</strong><div className="text-[13px] text-[#d5ddd6]">The same statement twice changes nothing.</div></div>
@@ -212,8 +212,8 @@ export function UploadScreen({
       </header>
 
       <main className="mx-auto max-w-[1280px] px-5 pb-12 pt-8 sm:px-10">
-        <div className="grid items-center gap-12 xl:grid-cols-[600px_1fr]">
-          <div>
+        <div className="md:grid md:grid-cols-[minmax(0,600px)_minmax(0,1fr)] md:items-center">
+          <div className="max-w-[600px]">
             <Chip>Free, private, no sign-up</Chip>
             <h1 className="mb-4 mt-4 text-[40px] font-bold leading-[1.05] tracking-tight sm:text-[52px]">
               See where your <span className="text-brand">M-Pesa</span> money really goes
@@ -246,7 +246,9 @@ export function UploadScreen({
               ))}
             </ul>
           </div>
-          <Preview />
+          <div className="@container hidden min-w-0 md:block md:pl-12">
+            <Preview />
+          </div>
         </div>
 
         <ol className="mt-12 grid gap-4 md:grid-cols-3">
